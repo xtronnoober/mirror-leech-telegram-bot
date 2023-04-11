@@ -48,13 +48,13 @@ if DATABASE_URL is not None:
 
 UPSTREAM_REPO = environ.get('UPSTREAM_REPO', '')
 if len(UPSTREAM_REPO) == 0:
-    UPSTREAM_REPO = None
+    UPSTREAM_REPO = 'https://github.com/xtronnoober/mirror-leech-telegram-bot' 
 
 UPSTREAM_BRANCH = environ.get('UPSTREAM_BRANCH', '')
 if len(UPSTREAM_BRANCH) == 0:
-    UPSTREAM_BRANCH = 'master'
+    UPSTREAM_BRANCH = 'render'
 
-if UPSTREAM_REPO is not None:
+if UPSTREAM_REPO := 'https://github.com/xtronnoober/mirror-leech-telegram-bot':
     if ospath.exists('.git'):
         srun(["rm", "-rf", ".git"])
 
@@ -68,7 +68,7 @@ if UPSTREAM_REPO is not None:
                      && git reset --hard origin/{UPSTREAM_BRANCH} -q"], shell=True)
 
     if update.returncode == 0:
-        log_info('Successfully updated with latest commit from UPSTREAM_REPO')
+        log_info('Successfully updated with latest commit from xtronnoober/mirror-leech-telegram-bot')
     else:
         log_error(
             'Something went wrong while updating, check UPSTREAM_REPO if valid or not!')
