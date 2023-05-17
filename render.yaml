@@ -23,6 +23,5 @@ services:
       - key: TELEGRAM_HASH
         # value: TELEGRAM_HASH
         sync: false
-      - key: BASE_URL
-        # value: BASE_URL
-        sync: false
+
+        
